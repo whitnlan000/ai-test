@@ -1,7 +1,8 @@
 allow_embedding: false
 dependencies: []
-name: Tutorial App 1
-package_name: Tutorial_App_1
+metadata: {description: Testing AI, title: AI Test}
+name: AI Test
+package_name: AI_Test
 renamed: true
 runtime_options:
   client_version: '3'
