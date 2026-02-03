@@ -35,42 +35,7 @@ def run_ai(selfv):
       tokenize(prefix, next_word)
 
     # Your training text
-  article_text = """67 67 67 Skip to main contentSkip to navigationSkip to navigation
-Support the Guardian
-Fund independent journalism with 50% off for 6 months
-Claim discount
-Print subscriptions
-Newsletters
-Sign in
-US
-The Guardian - Back to homeThe Guardian
-
-News
-Opinion
-Sport
-Culture
-Lifestyle
-Show more
-Film
-Books
-Music
-Art & design
-TV & radio
-Stage
-Classical
-Games
-Satisfactory.
-View image in fullscreen
-Dream factory … Satisfactory. Photograph: Coffee Stain Studios
-Games
- This article is more than 1 year old
-Satisfactory, the factory-building game so compelling it has invaded my dreams
-This article is more than 1 year oldPatrick Lum
-An addictive example of a burgeoning genre, its elaborate widgets and logistics demand long shifts that have re-engineered my unconscious mind
-
-Tue 8 Oct 2024 10.45 EDT
-Share
-26
+  article_text = """67 67 67 
 Everyone knows about the Tetris effect, named after the puzzle game that is so compelling players can find themselves visualising falling blocks and imagining how real-world objects could fit together long after turning off the Game Boy. Similarly, playing too much Burnout or Grand Theft Auto gave some of my uni friends pause before they got behind the wheel in real life. But few video games are so enthralling that they begin to invade one’s subconscious. I would like to nominate a new candidate for this dubious pantheon: a factory-building game called, beautifully, Satisfactory.
 
 Satisfactory is part of an emerging genre of factory games. They’re like a jacked-up version of survival-crafting games such as Minecraft. You craft things that build widgets you can use to build other things, in order to accomplish some far-off goal … except the quantities of things needed are so ridiculously large that you need to automate it. So you set down extractors and feed raw materials into other machines via conveyor belts, and pretty soon you have a whole mini-factory ticking along, happily producing screws or plates or whatever while you run off to rig up another project elsewhere.
@@ -290,6 +255,7 @@ Conclusion
 Math Helper 3 exemplifies the complex interplay between technology, education, and youth culture. Its clever disguise, engaging content, and underground popularity reveal much about how students adapt to digital constraints. While its existence challenges school authorities, it also offers insights into creativity, community, and the evolving relationship between learning and play. Ultimately, the story of Math Helper 3 is not just about gaming—it is about the ingenuity of students in a world where access, control, and curiosity constantly collide.
 """  # put your long text here
   tokenize_article(article_text)
+  article_text.lower().split()
 
   # Predict the next word based on the prefix
   def predict(prefix):
@@ -300,17 +266,23 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
       # fallback: pick a random next word from the tokens
       random_prefix = random.choice(list(tokens.keys()))
       return random.choice(tokens[random_prefix])
-
+  
+  output = [""]
     # Start generation
-  user_input = selfv.text_box_1.text.lower().split()
-  if len(user_input) < 2:
-    print("Please enter at least two words to start.")
-    selfv.label_1.text = "Please enter at least two words to start."
-    return
+  user_input = selfv.text_box_1.text#.lower().split()
+  
+  if len(user_input) < 1:
+    print("passed")
+    print(article_text)
+    article_text = article_text.lower().split()
+  else:
+    print("failed")
+    article_text = user_input
+    tokenize_article(article_text)
+    print(article_text)
 
-  prefix_words = user_input[:2]  # take first two words
-  output = prefix_words.copy()
-
+  prefix_words = [" "," "," "," "," "]
+  
   for _ in range(100):  # generate 100 words
     key = prefix_words[-2] + " " + prefix_words[-1]
     next_word = predict(key)
