@@ -271,15 +271,15 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
     # Start generation
   user_input = selfv.text_box_1.text#.lower().split()
   
-  if len(user_input) < 1:
+  if len(user_input) > 1:
     print("passed")
-    print(article_text)
+    #print(article_text)
     article_text = article_text.lower().split()
   else:
     print("failed")
-    article_text = user_input
+    article_text = user_input.lower()
     tokenize_article(article_text)
-    print(article_text)
+    #print(article_text)
 
   prefix_words = [" "," "," "," "," "]
   
@@ -294,6 +294,6 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
   
   parts = text.split('. ')
   capitalized = '. '.join(p.capitalize() for p in parts)
-  print(capitalized)
+  #print(capitalized)
   
   selfv.label_1.text = capitalized
