@@ -280,8 +280,11 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
     article_text = user_input.lower()
     tokenize_article(article_text)
     #print(article_text)
-
-  prefix_words = [" "," "," "," "," "]
+  prefix_words = ["","","","",""]
+  for i in selfv.text_box_1.text.lower().split():
+    prefix_words.append(i)
+    output.append(i)
+  
   
   for _ in range(100):  # generate 100 words
     key = prefix_words[-2] + " " + prefix_words[-1]
