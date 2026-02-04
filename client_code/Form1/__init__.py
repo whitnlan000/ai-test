@@ -281,22 +281,25 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
     tokenize_article(article_text)
     #print(article_text)
   prefix_words = ["","","","",""]
-  for i in selfv.text_box_1.text.lower().split():
-    prefix_words.append(i)
-    output.append(i)
+  if len(selfv.text_box_1.text.lower().split()) > 1:
+    for i in selfv.text_box_1.text.lower().split():
+      prefix_words.append(i)
+      output.append(i)
   
   
-  for _ in range(100):  # generate 100 words
-    key = prefix_words[-2] + " " + prefix_words[-1]
-    next_word = predict(key)
-    output.append(next_word)
-    prefix_words.append(next_word)  # slide the window
-
-  text = " ".join(output)
-  text = text[0].upper() + text[1:]  
+    for _ in range(100):  # generate 100 words
+      key = prefix_words[-2] + " " + prefix_words[-1]
+      next_word = predict(key)
+      output.append(next_word)
+      prefix_words.append(next_word)  # slide the window
   
-  parts = text.split('. ')
-  capitalized = '. '.join(p.capitalize() for p in parts)
-  #print(capitalized)
-  
-  selfv.label_1.text = capitalized
+    text = " ".join(output)
+    text = text[0].upper() + text[1:]  
+    
+    parts = text.split('. ')
+    capitalized = '. '.join(p.capitalize() for p in parts)
+    #print(capitalized)
+    
+    selfv.label_1.text = capitalized
+  else:
+    selfv.label_1.text = "Please type 2 or more words."
