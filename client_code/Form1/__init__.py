@@ -287,7 +287,7 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
       output.append(i)
   
   
-    for _ in range(1000): 
+    for _ in range(10000): 
       key = prefix_words[-2] + " " + prefix_words[-1]
       next_word = predict(key)
       output.append(next_word)

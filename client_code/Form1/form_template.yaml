@@ -5,7 +5,7 @@ components:
   properties: {}
   type: TextBox
 - event_bindings: {}
-  layout_properties: {grid_position: 'SHWCFO,DYZDQT'}
+  layout_properties: {grid_position: 'AIOUWB,LRJYCK'}
   name: button_1
   properties: {text: Enter}
   type: Button
