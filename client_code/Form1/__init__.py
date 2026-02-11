@@ -373,7 +373,7 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
       output.append(i)
   
   
-    for _ in range(10000): 
+    for _ in range(100): 
       key = prefix_words[-2] + " " + prefix_words[-1]
       next_word = predict(key)
       output.append(next_word)
@@ -381,7 +381,7 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
   
     text = " ".join(output)
     text = text[0].upper() + text[1:]  
-    
+      
     parts = text.split('. ')
     capitalized = '. '.join(("\n" if random.randint(1,3) == 1 else "")+p.capitalize() for p in parts)
     #print(capitalized)
