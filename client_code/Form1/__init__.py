@@ -383,7 +383,7 @@ Math Helper 3 exemplifies the complex interplay between technology, education, a
     text = text[0].upper() + text[1:]  
     
     parts = text.split('. ')
-    capitalized = '. '.join("\n" if random.randint(1,3) == 1+p.capitalize() for p in parts)
+    capitalized = '. '.join(("\n" if random.randint(1,3) == 1 else "")+p.capitalize() for p in parts)
     #print(capitalized)
     
     selfv.label_1.text = capitalized
