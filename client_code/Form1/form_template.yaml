@@ -13,5 +13,14 @@ components:
   name: label_1
   properties: {visible: true}
   type: Label
+- components:
+  - layout_properties: {grid_position: 'YWFYFQ,ZBLFES'}
+    name: button_2
+    properties: {icon: 'fa:bar-chart', role: button, text: Click here to request training data to add.}
+    type: Button
+  layout_properties: {grid_position: 'VCFRLU,POFSZU'}
+  name: link_1
+  properties: {icon: '', text: '', url: 'https://forms.gle/6zVDv5ESWM6mMSqZ6'}
+  type: Link
 container: {type: ColumnPanel}
 is_package: true
